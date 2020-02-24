@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 
 
 export default function Login ()  {
 
-
-    
-const [credentials, setCredentials] = useState({});
+const [credentials, setCredentials] = useState(initialValues);
 const [isLoading, setIsLoading] = useState(false);
 const history = useHistory();
 
@@ -21,6 +19,11 @@ const handleChange = e => {
  })
 
 }
+
+useEffect(() => {
+    setIsLoading(true);
+
+}, []);
         
        
 const login = e => {
@@ -62,4 +65,9 @@ axios.post('http://localhost:5000/api/login', credentials)
         
         
     
+}
+
+const initialValues = {
+    username: '',
+    password: ''
 }

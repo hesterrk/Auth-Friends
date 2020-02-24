@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import FriendsForm from './FriendsForm';
-import { Route, Link } from 'react-router-dom';
 import { axiosWithAuth } from './utils/axiosWithAuth';
+import Friend from './Friend';
 
 
 export default function FriendsList() {
 
-// create a list of your friends that you get from the API
     const [friends, setFriends] = useState([]);
 
     useEffect(() => {
@@ -26,13 +24,13 @@ export default function FriendsList() {
 
     return (
         <div>
-            {/* //map and display friends here */}
 
-        {friends.map}
+        {friends.map(fr => {
+            return (
+                <Friend friend={fr} key={fr.id}/>
+            )
+        })}
 
-
-        <Link to="/friendsform"> Add New Friend Here! </Link>
-        <Route path to="/friendsform" component={FriendsForm}/>
         </div>
     )
 }
