@@ -1,6 +1,8 @@
 import React from 'react'
 import { axiosWithAuth } from './utils/axiosWithAuth';
-import { useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
+import UpdateFriend from './UpdateFriend';
+import PrivateRoute from './utils/PrivateRoute';
 
 
 export default function Friend(props) {
@@ -8,15 +10,18 @@ export default function Friend(props) {
 const history = useHistory();
 
 
-// const changeFriend = () => {
+//this has got access to props passe from FL: props.friend (contains each person)
+const changeFriend = e => {
+        e.preventDefault();
 //     axiosWithAuth().put(`/api/friends/${props.friend.id}`, props.friend)
 //     .then(res => {
 //         console.log(res, 'updated')
+       history.push(`/update-friend/${props.friend.id}`)
   
 //     })
 //     .catch(err => console.log(err));
 
-// }
+}
 
 
 
@@ -42,10 +47,12 @@ const deleteFriend = () => {
                 <p>{props.friend.age}</p>
                 <p>{props.friend.email}</p>
                 <button onClick={deleteFriend}> Delete Friend! </button>
-                <button>Edit</button>
+                <button onClick={changeFriend}>Edit</button>
                 </div>
 
-
+        
+        <PrivateRoute path="/update-friend/:id" 
+        render={props => <UpdateFriend {...props} friendupdate={props.friend}/>} />
 
         </div>
 

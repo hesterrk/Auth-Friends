@@ -22,6 +22,7 @@ function App() {
       <Switch>
       <PrivateRoute exact path="/friendslist" component={FriendsList}/>
       <PrivateRoute exact path="/friendsform" component={FriendsForm}/>
+      {/* <PrivateRoute exact path="/update-friend/:id" component={UpdateFriend}/> */}
 
       <Route path="/login" component={Login}/>
       {/* <Route component={Login}/> */}
