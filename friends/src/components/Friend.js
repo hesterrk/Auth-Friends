@@ -30,7 +30,8 @@ const deleteFriend = () => {
     .then(res => {
         console.log(res, 'deleted')
         //refreshes page after i delete each friend 
-        history.go(0)
+        history.push('/friendslist')
+        props.setFriends(res.data);
         
        
     })

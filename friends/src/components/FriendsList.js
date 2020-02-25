@@ -27,7 +27,7 @@ export default function FriendsList() {
 
         {friends.map(fr => {
             return (
-                <Friend friend={fr} key={fr.id}/>
+                <Friend friend={fr} key={fr.id} setFriends={setFriends}/>
             )
         })}
 
