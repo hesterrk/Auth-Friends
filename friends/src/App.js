@@ -12,7 +12,6 @@ function App() {
 
   return (
 
-    
 
     <div className="App">
        <Link to="/login">Login</Link> 
@@ -26,15 +25,19 @@ function App() {
         
       <PrivateRoute exact path="/friendslist" component={FriendsList}/>
       {/* <PrivateRoute exact path="/friendslist" 
-        render={props => <FriendsList {...props} friends={friends} setFriends={setFriends}/>} />   */}
+        render={props => <FriendsList {...props} /> } /> */}
 
       <PrivateRoute exact path="/friendsform" component={FriendsForm}/>
+      {/* <PrivateRoute exact path="/friendsform" 
+        render={props => <FriendsForm {...props} /> } /> */}
      
-      <PrivateRoute exact path="/update-friend/:id" component={UpdateFriend}/>
+      <PrivateRoute path="/update-friend/:id" component={UpdateFriend}/>
+      {/* <PrivateRoute exact path="/update-friend/:id" 
+        render={props => <UpdateFriend {...props} /> } /> */}
     
-
       <Route path="/login" component={Login}/>
-      <Route component={Login}/>
+      
+      {/* <Route component={Login}/> */}
       </Switch>
       
     </div>

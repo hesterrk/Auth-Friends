@@ -1,8 +1,7 @@
 import React from 'react'
 import { axiosWithAuth } from './utils/axiosWithAuth';
 import {  useHistory } from 'react-router-dom';
-// import UpdateFriend from './UpdateFriend';
-// import PrivateRoute from './utils/PrivateRoute';
+
 
 
 export default function Friend(props) {

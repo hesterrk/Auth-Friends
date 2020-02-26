@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 
@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 export default function Login ()  {
 
 const [credentials, setCredentials] = useState(initialValues);
-const [isLoading, setIsLoading] = useState(false);
 const history = useHistory();
 
         
@@ -20,10 +19,10 @@ const handleChange = e => {
 
 }
 
-useEffect(() => {
-    setIsLoading(true);
+// useEffect(() => {
+//     setIsLoading(true);
 
-}, []);
+// }, []);
         
        
 const login = e => {

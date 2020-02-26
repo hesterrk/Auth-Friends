@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { axiosWithAuth } from './utils/axiosWithAuth';
 
-export default function UpdateFriend(props) {
+export default function UpdateFriend() {
 
 const [updateFriend, setUpdateFriend] = useState(initialValues)
 const { id } = useParams();
 const history = useHistory();
 
-
-// useEffect(() => {
-// const friendToUpdate = props.friendupdate.find(fr => fr.id.toString() === id);
-// console.log(friendToUpdate);
-// }, [props.friendupdate, id]);
 
 
 const handleChange = e => {
@@ -27,14 +22,12 @@ function handleSubmit(e) {
     axiosWithAuth().put(`/api/friends/${id}`, updateFriend)
     .then(res => {
         console.log(res)
-        history.push(`friendslist/${id}`)
+        // history.push(`friendslist/${id}`)
+        history.push('/friendslist')
+
     })
     .catch(err => console.log(err));
 }
-
-
-
-//PASS DOWN SET FRIENDS STATE SETTER FUNCTION FROM FRIENDS LIST SO MY EDITED FRIEND GETS UPDATED--> REFLECTS CHANGES ON THE ui of that component (friends list component --> pass down that prop to Friends then to this one)
 
 
 return (
@@ -62,7 +55,7 @@ return (
                 value={updateFriend.email}
                 onChange={handleChange}
             />
-            <button type="submit"></button>
+            <button type="submit">Update ! </button>
         </form>
     </div>
     )
