@@ -3,6 +3,7 @@ import { axiosWithAuth } from './utils/axiosWithAuth';
 import Friend from './Friend';
 
 
+
 export default function FriendsList() {
 
     const [friends, setFriends] = useState([]);
@@ -16,6 +17,7 @@ export default function FriendsList() {
         .then(res => {
             console.log(res);
             setFriends(res.data);
+            console.log(res.data)
         })
         .catch(err=> console.log(err));
 
@@ -30,6 +32,8 @@ export default function FriendsList() {
                 <Friend friend={fr} key={fr.id} setFriends={setFriends}/>
             )
         })}
+
+
 
         </div>
     )
